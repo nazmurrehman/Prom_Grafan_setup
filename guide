@@ -1,0 +1,16 @@
+Prometheus Installation
+These scripts are tested on ubuntu 18.04 aws EC2 instances.
+
+Steps:
+
+git clone repo
+
+./node_ex.sh
+
+./prom.sh
+
+./grana.sh
+
+http://hostname:9090 - prometheus url
+
+http://hostname:3000 - grafana url (both username and password is admin)
