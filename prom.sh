@@ -3,8 +3,6 @@ PROMETHEUS_VERSION="2.21.0"
 wget https://github.com/prometheus/prometheus/releases/download/v${PROMETHEUS_VERSION}/prometheus-${PROMETHEUS_VERSION}.linux-amd64.tar.gz
 tar -xzvf prometheus-${PROMETHEUS_VERSION}.linux-amd64.tar.gz
 cd prometheus-${PROMETHEUS_VERSION}.linux-amd64/
-# if you just want to start prometheus as root
-#./prometheus --config.file=prometheus.yml
 
 # create user
 useradd --no-create-home --shell /bin/false prometheus
@@ -48,6 +46,8 @@ ExecStart=/usr/local/bin/prometheus \
     --web.console.libraries=/etc/prometheus/console_libraries
 [Install]
 WantedBy=multi-user.target' > /etc/systemd/system/prometheus.service
+
+
 
 systemctl daemon-reload
 systemctl enable prometheus
